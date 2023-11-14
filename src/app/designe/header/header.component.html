@@ -16,9 +16,33 @@
       <h3>Book your stay and enjoy Luxury<br>redefined at the most affordable rates.</h3>
   </section>
   <section class="section-header-CTA">
-      <div class="section-header-CTA-button"><img src="https://paconavarrete.github.io/luxury-hotel/images/homepage/book_now.png" alt="">BOOK NOW</div>
+      <div class="section-header-CTA-button" (click)="Is_click_Book_now()"><img src="https://paconavarrete.github.io/luxury-hotel/images/homepage/book_now.png" alt="">BOOK NOW</div>
       <a href="#content-body" class="CTA-scroll-text">scroll</a>
       <a href="#content-body"><img src="https://paconavarrete.github.io/luxury-hotel/images/homepage/down_scroll.png" class="CTA-scroll-imgstatic" alt=""></a>
       <a href="#content-body" class="CTA-scroll-animate"><img src="https://paconavarrete.github.io/luxury-hotel/images/homepage/down_scroll.png" alt=""></a>
   </section>
+
+  <section *ngIf="click_Book_now" >
+    <table class="table" >
+      <thead >
+        <tr >
+          <th scope="col" >City :
+            <select class="form-select" aria-label="Default select example" class="w-14 p-3">
+            <option selected >Open this select menu</option>
+            <option *ngFor="let item of cities" >{{item.name}}</option>
+            </select>
+          </th>
+          <th scope="col">Arrival Date :
+              <input type="date" name="" id="" class="w-14 p-3">
+          </th>
+          <th>
+            <button class="btn btn-primary w-14 p-3">To reshearch</button>
+          </th>
+</tr>
+
+
+        </thead>
+    </table>
+  </section>
+
 </header>

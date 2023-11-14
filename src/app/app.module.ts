@@ -9,7 +9,7 @@ import { RoomsComponent } from './designe/rooms/rooms.component';
 import { FacilitiesComponent } from './designe/facilities/facilities.component';
 import { ContactUsComponent } from './designe/contact-us/contact-us.component';
 import { AppRoutingModule } from './app-routing.module';
-
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +22,8 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
