@@ -1,30 +1,18 @@
-<article id="content-body">
+ <article id="content-body">
   <section class="article-section-breakfast">
-      <p>All our room types are including complementary breakfast</p>
+      <p style="background-color: aliceblue;">All our room types are including complementary breakfast</p>
   </section>
-  <section class="article-section-main">
-      <div class="article-section-main-room">
+  <section class="article-section-main" style="margin-top: 5%;text-align: center;">
+      <div class="article-section-main-room" >
           <div class="article-section-main-room-copy">
-              <div class="article-section-main-room-copy-child">
-                  <h2>Luxury redefined</h2>
-                  <p>Our rooms are designed to transport<br>you into an environment made for leisure.<br>Take your mind off the day-to-day of home<br>life and find a private paradise for yourself.</p>
-                  <button>EXPLORE</button>
+              <div class="article-section-main-room-copy-child"  *ngFor="let item of hotels">
+                <div *ngIf="hotels">
+                </div>
+                  <h2>{{item.title}}</h2>
+                  <p>{{item.desc}}</p>
+                  <img src="https://agence.marketing-chine.com/wp-content/uploads/2020/08/lamamounia.png" width="25%" height="25%" alt="" srcset="">
+                  <button [routerLink]="'rooms/'+item._id">EXPLORE</button>
               </div>
-          </div>
-          <div class="article-section-main-room-img">
-              <div class="article-section-main-room-img-content"></div>
-          </div>
-      </div>
-      <div class="article-section-main-beach">
-          <div class="article-section-main-beach-copy">
-              <div class="article-section-main-beach-copy-child">
-                  <h2>Leave your worries in<br>the sand</h2>
-                  <p>We love life at the beach. Being close<br>to the ocean with access to endless sandy<br>beach ensures a relaxed state of mind. It<br>seems like time stands still watching the<br>ocean.</p>
-                  <button>EXPLORE</button>
-              </div>
-          </div>
-          <div class="article-section-main-beach-img">
-              <div class="article-section-main-beach-img-content"></div>
           </div>
       </div>
   </section>
@@ -32,3 +20,9 @@
 <div>
   <div class="triangule-footer"> <img src="https://paconavarrete.github.io/luxury-hotel/images/footer/triangule.svg" alt=""> </div>
 </div>
+
+
+
+
+
+

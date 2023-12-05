@@ -1,20 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
-
-
-@NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
-})
-export class LocationModule {
-
-  public country:String;
-  public addressLineOne:String;
-  public addressLineTwo:String;
-  public city:String;
-  public state:String;
-  public postCode:Number;
- }
+export class Location {
+  country: string;
+  addressLineOne: string;
+  addressLineTwo: string;
+  city: string;
+  state: string;
+  postCode: string;
+}
