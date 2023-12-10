@@ -9,7 +9,15 @@ import { RoomsComponent } from './designe/rooms/rooms.component';
 import { FacilitiesComponent } from './designe/facilities/facilities.component';
 import { ContactUsComponent } from './designe/contact-us/contact-us.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import {AngularFireModule} from '@angular/fire/compat';
+import { LoginComponent } from './designe/login/login.component';
+import { RegisterComponent } from './designe/register/register.component';
+import { DashboardComponent } from './designe/dashboard/dashboard.component';
+import { FormsModule } from '@angular/forms';
+import { environment } from 'src/environements/environement';
+import { ForgetPasswordComponent } from './designe/forget-password/forget-password.component';
+import { VerifyEmailComponent } from './designe/verify-email/verify-email.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,14 +26,21 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
     BodyComponent,
     RoomsComponent,
     FacilitiesComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    LoginComponent,
+    RegisterComponent,
+    DashboardComponent,
+    ForgetPasswordComponent,
+    VerifyEmailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    FormsModule
   ],
-  providers: [],
+  providers: [     ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

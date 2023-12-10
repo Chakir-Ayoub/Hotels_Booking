@@ -7,6 +7,8 @@
           <li class="nav-manu-ul-li"><a routerLink="home/facilities">Facilities</a></li>
           <li class="nav-manu-ul-li"><a routerLink="home/rooms">Rooms</a></li>
           <li class="nav-manu-ul-li"><a routerLink="home/contact-us">Contact-us</a></li>
+          <li class="nav-manu-ul-li btn btn-warning"><a routerLink="/login">LogOut</a></li>
+
       </ul>
   </nav>
   <section class="section-header-copy">
@@ -22,9 +24,8 @@
       <a href="#content-body" class="CTA-scroll-animate"><img src="https://paconavarrete.github.io/luxury-hotel/images/homepage/down_scroll.png" alt=""></a>
   </section>
   <div style="position: relative; z-index: 1;">
-    <!-- Votre contenu ici -->
 
-    <section style="position: absolute; top: 0; left: 0; width: 100%;">
+    <section style="position: absolute; top: 0; left: 0; width: 100%;display:math;">
         <table class="table" style="background-color: rgba(255, 255, 255, 0.5); position: absolute; top: 0; left: 0; width: 100%;">
             <thead style="background-color: rgba(255, 255, 255, 0.5);">
                 <tr>
@@ -57,7 +58,3 @@
 
 </header>
 
-
-<div *ngIf="Hotels">
-{{Hotels | json}}
-</div>

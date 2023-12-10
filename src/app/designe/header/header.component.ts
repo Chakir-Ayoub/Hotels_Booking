@@ -8,6 +8,7 @@ import { CountriesModule } from 'src/app/models/countries/countries.module';
 import { Hotel } from 'src/app/models/hotel/hotel.module';
 import { HotelsServicesService } from 'src/app/services/hotels/hotels-services.service';
 import * as moment from 'moment';
+import { AuthService } from 'src/app/services/shared/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -29,7 +30,8 @@ export class HeaderComponent implements OnInit  {
 
   constructor(
     private _fb: FormBuilder,
-    private _hotels_services:HotelsServicesService
+    private _hotels_services:HotelsServicesService,
+    private auth:AuthService
   ){  }
 
   ngOnInit(): void {
@@ -55,6 +57,10 @@ export class HeaderComponent implements OnInit  {
         this.Hotels=item;
         alert(this.Hotels);
     })
+  }
+
+  register(){
+    this.auth.logout();
   }
 
 }
