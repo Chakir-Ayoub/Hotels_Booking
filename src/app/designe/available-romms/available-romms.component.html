@@ -1,34 +1,28 @@
-
 <article id="content-body">
   <section class="article-section-copy">
-      <h2>ROOMS AND RATES</h2>
-      <p>Each of our bright, light-flooded rooms come with everything you could possibly need for a comfortable stay. And yes,<br>comfort isn’t our only objective, we also value good design, sleek contemporary furnishing complemented<br>by the rich tones of nature’s palette as visible from our rooms’ sea-view windows and terraces. </p>
+      <h2>CHAMBRES ET TARIFS</h2>
+      <p>Chacune de nos chambres lumineuses inondées de lumière est équipée de tout ce dont vous pourriez avoir besoin pour un séjour confortable. Et oui, le confort n'est pas notre seul objectif, nous valorisons également un bon design, un ameublement contemporain élégant complété par les tons riches de la palette de la nature tels qu'ils sont visibles depuis les fenêtres et les terrasses donnant sur la mer. </p>
   </section>
-  <section class="article-section-room-cards" *ngFor="let item of rooms">
+  <section class="article-section-room-cards" *ngFor="let item of rooms; let i = index">
       <div class="article-section-room-card-styles" >
-          <div class="article-section-room-card-styles-imgsingle"></div>
-          <div class="article-section-room-card-styles-type" *ngIf="item.title!==null"><p>{{item.title}}</p></div>
+          <!-- <div class="article-section-room-card-styles-imgsingle" ></div> -->
+            <img [src]="item.photos[0]" height="400px" width="1400px"   alt="" srcset="">
+                    <div class="article-section-room-card-styles-type" *ngIf="item.title!==null"><p>{{item.title}}</p></div>
           <div class="article-section-room-card-styles-details">
               <div *ngIf="item.desc!==null">
                   <details>
-                      <summary>VIEW ROOM DETAILS</summary>
+                      <summary>VOIR LES DÉTAILS DE LA CHAMBRE</summary>
                     {{item.desc}}
                     </details>
               </div>
-              <button class="article-section-room-card-styles-details-button" *ngIf="item.basePrice!==null">{{item.basePrice}} Avg/night</button>
+              <button class="article-section-room-card-styles-details-button" *ngIf="item.basePrice!==null">{{item.basePrice}} Moy./nuit</button>
           </div>
-          <div>
-            <div class="triangule-footer"> <img [src]="item.photos" alt=""> </div>
+          <div >
+            <!-- <div class="triangule-footer"> <img [src]="item.photos[0]" alt=""> </div> -->
           </div>
       </div>
   </section>
-
 </article>
 <div>
   <div class="triangule-footer"> <img src="https://paconavarrete.github.io/luxury-hotel/images/footer/triangule.svg" alt=""> </div>
-</div>
-
-
-<div *ngIf="rooms">
-{{rooms|json}}
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import * as moment from 'moment';
 import { Hotel } from 'src/app/models/hotel/hotel.module';
 import { Room } from 'src/app/models/rooms/rooms.module';
 import { HotelsServicesService } from 'src/app/services/hotels/hotels-services.service';
@@ -19,19 +20,23 @@ export class AvailableRommsComponent implements OnInit {
   rooms:Room[]=[];
 
   ngOnInit(): void {
+
     this._route.params.subscribe((params)=>{
       this.checkOutDate =params['checkOutDate'];
       this.checkInDate=params['checkInDate'];
       this.guests=params['guests'];
       this.city=params['city'];});
-      this.hotel_service.getHotelsDisponibles(this.checkInDate,this.checkOutDate,this.guests,this.city).subscribe(item=>{
+      const formattedDate1 = moment(this.checkInDate).format('MM-DD-YYYY');
+      const formattedDate2 = moment(this.checkOutDate).format('MM-DD-YYYY');
+
+      this.hotel_service.getHotelsDisponibles(formattedDate2,formattedDate1,this.guests,this.city).subscribe(item=>{
         this.hotel=item;
         this.hotel.forEach(element => {
-         this.rooms= element.rooms
-         console.log("je suis la ");
-         console.log(this.rooms);
-        });
-        console.log(this.hotel);
+         this.rooms= element.rooms;
+        },error=>{
+          console.log(error);
+        }
+        );
 
       })
     }
