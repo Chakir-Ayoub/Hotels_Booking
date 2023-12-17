@@ -1,3 +1,4 @@
+import { TokenService } from './../../services/Token/token.service';
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/services/shared/auth.service';
 
@@ -9,7 +10,7 @@ import { AuthService } from 'src/app/services/shared/auth.service';
 export class LoginComponent {
   email:string='';
   password:string='';
-  constructor(private auth:AuthService){}
+  constructor(private auth:AuthService,private tokenservice:TokenService){}
   login(){
       if(this.email==''){
         alert('please enter email');
@@ -19,7 +20,6 @@ export class LoginComponent {
         alert('please enter password');
         return;
       }
-
       this.auth.login(this.email,this.password);
       this.email='';
       this.password='';

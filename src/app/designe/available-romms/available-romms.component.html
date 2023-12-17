@@ -1,5 +1,5 @@
 
-  <article id="content-body">
+<article id="content-body">
   <section class="article-section-copy">
       <h2>ROOMS AND RATES</h2>
       <p>Each of our bright, light-flooded rooms come with everything you could possibly need for a comfortable stay. And yes,<br>comfort isn’t our only objective, we also value good design, sleek contemporary furnishing complemented<br>by the rich tones of nature’s palette as visible from our rooms’ sea-view windows and terraces. </p>
@@ -18,7 +18,7 @@
               <button class="article-section-room-card-styles-details-button" *ngIf="item.basePrice!==null">{{item.basePrice}} Avg/night</button>
           </div>
           <div>
-            <div class="triangule-footer"> <img src="https://paconavarrete.github.io/luxury-hotel/images/footer/triangule.svg" alt=""> </div>
+            <div class="triangule-footer"> <img [src]="item.photos" alt=""> </div>
           </div>
       </div>
   </section>
@@ -29,3 +29,6 @@
 </div>
 
 
+<div *ngIf="rooms">
+{{rooms|json}}
+</div>

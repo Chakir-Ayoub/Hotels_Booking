@@ -10,6 +10,7 @@ import { LoginComponent } from './designe/login/login.component';
 import { RegisterComponent } from './designe/register/register.component';
 import { VerifyEmailComponent } from './designe/verify-email/verify-email.component';
 import { ForgetPasswordComponent } from './designe/forget-password/forget-password.component';
+import { AvailableRommsComponent } from './designe/available-romms/available-romms.component';
 
 const routes: Routes=[
   {path:"",redirectTo:"/login",pathMatch:'full'},
@@ -23,6 +24,7 @@ const routes: Routes=[
     {path:'',component:BodyComponent},
     {path:'facilities',component:FacilitiesComponent},
     {path:'rooms/:id',component:RoomsComponent},
+    { path: 'available/:checkOutDate/:checkInDate/:guests/:city', component: AvailableRommsComponent },
     {path:'contact-us',component:ContactUsComponent}
   ]}
 ]

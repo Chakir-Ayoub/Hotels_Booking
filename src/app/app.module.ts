@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 import { environment } from 'src/environements/environement';
 import { ForgetPasswordComponent } from './designe/forget-password/forget-password.component';
 import { VerifyEmailComponent } from './designe/verify-email/verify-email.component';
+import { AvailableRommsComponent } from './designe/available-romms/available-romms.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import { VerifyEmailComponent } from './designe/verify-email/verify-email.compon
     RegisterComponent,
     DashboardComponent,
     ForgetPasswordComponent,
-    VerifyEmailComponent
+    VerifyEmailComponent,
+    AvailableRommsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,10 +1,14 @@
 import { HotelsServicesService } from 'src/app/services/hotels/hotels-services.service';
 import { Room } from '../../models/rooms/rooms.module';
 import { RoomsService } from './../../services/rooms/rooms.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Hotel } from 'src/app/models/hotel/hotel.module';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Country, State, City, ICity }  from 'country-state-city';
+import { CountriesModule } from 'src/app/models/countries/countries.module';
+import { FormGroup } from '@angular/forms';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-rooms',
@@ -12,7 +16,15 @@ import { Observable } from 'rxjs';
   styleUrls: ['./rooms.component.css']
 })
 export class RoomsComponent implements OnInit{
-
+  Countries:CountriesModule[]=[];
+  allcity:ICity[]=[];
+  SearchForm: FormGroup;
+  Hotels:Hotel[]=[];
+  LogIn:String;
+  @ViewChild('city') city:ElementRef;
+  @ViewChild('checkInDate') checkInDate:ElementRef;
+  @ViewChild('checkOutDate') checkOutDate:ElementRef;
+  @ViewChild('guests') guests:ElementRef;
   constructor(
               private _hotel_service:HotelsServicesService,
               private _route:ActivatedRoute,
@@ -44,4 +56,20 @@ export class RoomsComponent implements OnInit{
   }
 
 
+  Search_Button() {
+    let city = this.city.nativeElement.value;
+    let checkInDate = this.checkInDate.nativeElement.value;
+    let checkOutDate = this.checkOutDate.nativeElement.value;
+    let guests = this.guests.nativeElement.value;
+
+    // const formattedDate1 = moment(checkInDate).format('MM-DD-YYYY');
+    // const formattedDate2 = moment(checkOutDate).format('MM-DD-YYYY');
+    const searchParams = {
+      checkInDate: checkInDate,
+      checkOutDate: checkOutDate,
+      guests: guests,
+      city: city
+    };
+
+  }
 }

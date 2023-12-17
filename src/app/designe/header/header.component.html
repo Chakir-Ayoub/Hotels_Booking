@@ -3,11 +3,11 @@
       <a routerLink="home"><img src="https://paconavarrete.github.io/luxury-hotel/images/homepage/Main_logo.png" alt="Luxury Hotels"></a>
       <ul>
           <!-- <li class="list-style list-style::after"><a class="a-text-style" href="#">Home</a></li> -->
-          <li class="nav-manu-ul-li"><a routerLink="home">Home</a></li>
-          <li class="nav-manu-ul-li"><a routerLink="home/facilities">Facilities</a></li>
-          <li class="nav-manu-ul-li"><a routerLink="home/rooms">Rooms</a></li>
-          <li class="nav-manu-ul-li"><a routerLink="home/contact-us">Contact-us</a></li>
-          <li class="nav-manu-ul-li btn btn-warning"><a routerLink="/login">LogOut</a></li>
+          <li class="nav-manu-ul-li"><a routerLink="home" *ngIf="LogIn==='true'">Home</a></li>
+          <li class="nav-manu-ul-li"><a routerLink="home/facilities" *ngIf="LogIn==='true'">Facilities</a></li>
+          <li class="nav-manu-ul-li"><a routerLink="home/rooms" *ngIf="LogIn==='true'">Rooms</a></li>
+          <li class="nav-manu-ul-li"><a routerLink="home/contact-us" *ngIf="LogIn=='true'">Contact-us</a></li>
+          <li class="nav-manu-ul-li btn btn-warning" *ngIf="LogIn==='true'"><a  (click)="logout()" >LogOut</a></li>
 
       </ul>
   </nav>
@@ -23,9 +23,9 @@
       <a href="#content-body"><img src="https://paconavarrete.github.io/luxury-hotel/images/homepage/down_scroll.png" class="CTA-scroll-imgstatic" alt=""></a>
       <a href="#content-body" class="CTA-scroll-animate"><img src="https://paconavarrete.github.io/luxury-hotel/images/homepage/down_scroll.png" alt=""></a>
   </section>
-  <div style="position: relative; z-index: 1;">
+  <!-- <div style="position: relative; z-index: 1; display: math;">
 
-    <section style="position: absolute; top: 0; left: 0; width: 100%;display:math;">
+    <div style="position: absolute; top: 0; left: 0; width: 100%;display:math;" *ngIf="LogIn==='true'">
         <table class="table" style="background-color: rgba(255, 255, 255, 0.5); position: absolute; top: 0; left: 0; width: 100%;">
             <thead style="background-color: rgba(255, 255, 255, 0.5);">
                 <tr>
@@ -50,8 +50,43 @@
                 </tr>
             </thead>
         </table>
-    </section>
+    </div>
+</div> -->
+<div style="position: relative; z-index: 1; display: flex; justify-content: center;">
+
+  <div style="position: absolute; top: 0; left: 0; width: 100%; display: flex; justify-content: center;" *ngIf="LogIn==='true'">
+      <table class="table" style="margin: 0 auto; width: 80%;">
+          <thead style="background-color: rgba(255, 255, 255, 0.5);">
+              <tr>
+                  <th scope="col" style="background-color: rgba(255, 255, 255, 0);">
+                      City :
+                      <select class="form-select" class="w-14 p-3" #city style="background-color: rgba(255, 255, 255, 0);">
+                          <option selected>Open this select menu</option>
+                          <option *ngFor="let item of allcity">{{item.name}}</option>
+                      </select>
+                  </th>
+                  <th scope="col" style="background-color: rgba(255, 255, 255, 0);">
+                      CheckInDate :
+                      <input type="date" name="" id="" class="w-14 p-3" #checkInDate style="background-color: rgba(255, 255, 255, 0);">
+                  </th>
+                  <th scope="col" style="background-color: rgba(255, 255, 255, 0);">
+                      CheckOutDate :
+                      <input type="date" name="" id="" class="w-14 p-3" #checkOutDate style="background-color: rgba(255, 255, 255, 0);">
+                  </th>
+                  <th scope="col" style="background-color: rgba(255, 255, 255, 0);">
+                      Guests :
+                      <input type="number" name="" id="" class="w-14 p-3" #guests style="background-color: rgba(255, 255, 255, 0);">
+                  </th>
+                  <th style="background-color: rgba(255, 255, 255, 0);">
+                      <button class="w-9 p-3" style="background-color: #e0b973;color: white;"  (click)="Search_Button()" >research</button>
+                  </th>
+              </tr>
+          </thead>
+      </table>
+  </div>
 </div>
+
+
 
 <!-- Contenu suivant ici -->
 
