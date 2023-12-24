@@ -9,6 +9,8 @@ import { Hotel } from 'src/app/models/hotel/hotel.module';
 import { HotelsServicesService } from 'src/app/services/hotels/hotels-services.service';
 import { AuthService } from 'src/app/services/shared/auth.service';
 import { Router } from '@angular/router';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+
 
 @Component({
   selector: 'app-header',
@@ -21,12 +23,15 @@ export class HeaderComponent implements OnInit ,DoCheck {
   allcity:ICity[]=[];
   SearchForm: FormGroup;
   Hotels:Hotel[]=[];
-  LogIn:String;
+  LogIn:any;
   @ViewChild('city') city:ElementRef;
   @ViewChild('checkInDate') checkInDate:ElementRef;
   @ViewChild('checkOutDate') checkOutDate:ElementRef;
   @ViewChild('guests') guests:ElementRef;
-
+  token:Token;
+  getToken(): string | null {
+    return localStorage.getItem('token');
+  }
 
 
   constructor(
@@ -38,41 +43,21 @@ export class HeaderComponent implements OnInit ,DoCheck {
 
 
   ngDoCheck(): void {
-    this.LogIn=localStorage.getItem('token');
+    this.LogIn=localStorage.getItem('Token');
   }
 
   ngOnInit() {
     this.allcity=City.getCitiesOfCountry('MA');
+    // this.token=this.getToken().toString();
+
   }
 
-  // Search_Button() {
-  //   let city = this.city.nativeElement.value;
-  //   let checkInDate = this.checkInDate.nativeElement.value;
-  //   let checkOutDate = this.checkOutDate.nativeElement.value;
-  //   let guests = this.guests.nativeElement.value;
-
-  //   const formattedDate1 = moment(checkInDate).format('MM-DD-YYYY');
-  //   const formattedDate2 = moment(checkOutDate).format('MM-DD-YYYY');
-  //   const searchParams = {
-  //     checkInDate: formattedDate1,
-  //     checkOutDate: formattedDate2,
-  //     guests: guests,
-  //     city: city
-  //   };
-  // //'available/:checkInDate/:checkOutDate/:guests/:city
-  //   this.router.navigate(['/available/'+searchParams.checkInDate+'/'+searchParams.checkOutDate+'/'+searchParams.guests+'/'+searchParams.city]);
-  //   // this._hotels_services.getHotelsDisponibles(formattedDate1,formattedDate2,guests,city).subscribe(item=>{
-  //   //     this.Hotels=item;
-  //   // })
-  // }
   Search_Button() {
     let city = this.city.nativeElement.value;
     let checkInDate = this.checkInDate.nativeElement.value;
     let checkOutDate = this.checkOutDate.nativeElement.value;
     let guests = this.guests.nativeElement.value;
 
-    // const formattedDate1 = moment(checkInDate).format('MM-DD-YYYY');
-    // const formattedDate2 = moment(checkOutDate).format('MM-DD-YYYY');
     const searchParams = {
       checkInDate: checkInDate,
       checkOutDate: checkOutDate ,
@@ -95,4 +80,9 @@ export class HeaderComponent implements OnInit ,DoCheck {
 
 
 
+}
+
+export interface Token{
+  authenticated:Boolean;
+  authToken:String;
 }

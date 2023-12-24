@@ -15,7 +15,7 @@
                     {{item.desc}}
                     </details>
               </div>
-              <button class="article-section-room-card-styles-details-button" *ngIf="item.basePrice!==null">{{item.basePrice}} Moy./nuit</button>
+              <button class="article-section-room-card-styles-details-button" *ngIf="item.basePrice!==null" (click)="Book_Room(item._id)">{{item.basePrice}} Moy./nuit</button>
           </div>
           <div >
             <!-- <div class="triangule-footer"> <img [src]="item.photos[0]" alt=""> </div> -->

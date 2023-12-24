@@ -21,14 +21,6 @@ export class HotelsServicesService {
   }
 
   getHotelsDisponibles(dateArrivee: any, dateDepart: any, invites: any, ville: any): Observable<Hotel[]> {
-    // return this._http.get<Hotel[]>('http://localhost:5001/api/v1/hotels/available', {
-    //   params: {
-    //     checkInDate: dateArrivee,
-    //     checkOutDate: dateDepart,
-    //     guests: invites,
-    //     city: ville
-    //   }
-    // });
     const formattedCheckInDate = moment(dateArrivee).format('MM-DD-YYYY');
     const formattedCheckOutDate = moment(dateDepart).format('MM-DD-YYYY');
 

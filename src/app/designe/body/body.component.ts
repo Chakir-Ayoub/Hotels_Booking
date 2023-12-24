@@ -12,9 +12,10 @@ import { AuthService } from 'src/app/services/shared/auth.service';
 export class BodyComponent implements OnInit  {
   constructor(private _hotels_services:HotelsServicesService){}
   LogIn:String;
+
   ngOnInit(): void {
     this.getAllHotels();
-    this.LogIn=localStorage.getItem('token');
+    console.log(localStorage.getItem("authToken"));
   }
   hotels:Hotel[]=[];
 
