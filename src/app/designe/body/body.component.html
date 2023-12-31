@@ -1,4 +1,4 @@
- <article id="content-body" >
+<article id="content-body" >
   <section class="article-section-breakfast">
       <p style="background-color: aliceblue;">All our room types are including complementary breakfast</p>
   </section>
@@ -6,12 +6,12 @@
       <div class="article-section-main-room" >
           <div class="article-section-main-room-copy">
               <div class="article-section-main-room-copy-child"  *ngFor="let item of hotels">
-                <div *ngIf="hotels">
+                <div >
                 </div>
                   <h2>{{item.title}}</h2>
                   <p>{{item.desc}}</p>
-                  <img src="https://agence.marketing-chine.com/wp-content/uploads/2020/08/lamamounia.png" width="25%" height="25%" alt="" srcset="">
-                  <button [routerLink]="'rooms/'+item._id">EXPLORE</button>
+                  <img [src]="item.photos[1]" width="400" height="205" alt="" srcset="">
+                  <button style="margin-top: 5%;" [routerLink]="'rooms/'+item._id">EXPLORE</button>
               </div>
           </div>
       </div>

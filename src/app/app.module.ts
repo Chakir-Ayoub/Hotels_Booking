@@ -19,6 +19,8 @@ import { environment } from 'src/environements/environement';
 import { ForgetPasswordComponent } from './designe/forget-password/forget-password.component';
 import { VerifyEmailComponent } from './designe/verify-email/verify-email.component';
 import { AvailableRommsComponent } from './designe/available-romms/available-romms.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,14 +35,16 @@ import { AvailableRommsComponent } from './designe/available-romms/available-rom
     DashboardComponent,
     ForgetPasswordComponent,
     VerifyEmailComponent,
-    AvailableRommsComponent
+    AvailableRommsComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [     ],
   bootstrap: [AppComponent]

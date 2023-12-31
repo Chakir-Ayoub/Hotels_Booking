@@ -7,6 +7,7 @@ import { Hotel } from 'src/app/models/hotel/hotel.module';
 import { Room } from 'src/app/models/rooms/rooms.module';
 import { HotelsServicesService } from 'src/app/services/hotels/hotels-services.service';
 import Swal from 'sweetalert2';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-available-romms',

@@ -12,10 +12,14 @@ import { AuthService } from 'src/app/services/shared/auth.service';
 export class BodyComponent implements OnInit  {
   constructor(private _hotels_services:HotelsServicesService){}
   LogIn:String;
+    logo:string[]=[
+      "https://www.rekrute.com/rekrute/file/jobOfferLogo/jobOfferId/43267",
+      "https://agence.marketing-chine.com/wp-content/uploads/2020/08/lamamounia.png"
+    ]
+
 
   ngOnInit(): void {
     this.getAllHotels();
-    console.log(localStorage.getItem("authToken"));
   }
   hotels:Hotel[]=[];
 

@@ -5,9 +5,9 @@
           <!-- <li class="list-style list-style::after"><a class="a-text-style" href="#">Home</a></li> -->
           <li class="nav-manu-ul-li"><a routerLink="home" *ngIf="LogIn==='true'">Home</a></li>
           <li class="nav-manu-ul-li"><a routerLink="home/facilities" *ngIf="LogIn==='true'">Facilities</a></li>
-          <li class="nav-manu-ul-li"><a routerLink="home/rooms" *ngIf="LogIn==='true'">Rooms</a></li>
+          <!-- <li class="nav-manu-ul-li"><a routerLink="home/rooms" *ngIf="LogIn==='true'">Rooms</a></li> -->
           <li class="nav-manu-ul-li"><a routerLink="home/contact-us" *ngIf="LogIn=='true'">Contact-us</a></li>
-          <li class="nav-manu-ul-li btn btn-warning" ><a  (click)="logout()" >LogOut</a></li>
+          <li class="nav-manu-ul-li btn btn-warning" *ngIf="LogIn=='true'"><a  (click)="logout()" >LogOut</a></li>
 
       </ul>
   </nav>
@@ -26,9 +26,9 @@
   <div style="position: relative; z-index: 1; display: math;">
 
 
-<div style="position: relative; z-index: 1; display: flex; justify-content: center;">
+<div style="position: relative; z-index: 1; display: flex; justify-content: center;" *ngIf="LogIn=='true'">
 
-  <div style="position: absolute; top: 0; left: 0; width: 100%; display: flex; justify-content: center;">
+  <div style="position: absolute; top: 0; left: 0; width: 100%; display: flex; justify-content: center;" >
       <table class="table" style="margin: 0 auto; width: 80%;">
           <thead style="background-color: rgba(255, 255, 255, 0.5);">
               <tr>

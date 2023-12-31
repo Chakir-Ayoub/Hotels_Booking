@@ -10,28 +10,13 @@ export class AuthService {
   log:boolean=false;
   constructor(private fireauth:AngularFireAuth,private router:Router) { }
 
-  // login(email: string,password:string){
-  //   this.fireauth.signInWithEmailAndPassword(email,password).then(res=>{
-  //     this.log=true;
-  //     localStorage.setItem('token',this.log.toString());
-  //     if(res.user?.emailVerified==true){
-  //       this.router.navigate(['home']);
-  //     }else{
-  //       this.router.navigate(['verify-email']);
-  //     }
-  //   },err=>{
-  //     alert('something went wrong');
-  //     this.router.navigate(['/login']);
-  //   })
-  // }
 
   login(email: string, password: string) {
     this.fireauth.signInWithEmailAndPassword(email, password).then(res => {
-      // Stockez le jeton dans le localStorage
       res.user?.getIdToken().then(token => {
         localStorage.setItem('authToken', token);
+        localStorage.setItem('auth',JSON.stringify(true));
 
-        // Vous pouvez également stocker le jeton directement dans le localStorage
         localStorage.setItem('token', JSON.stringify({ authenticated: true, authToken: token }));
 
         if (res.user?.emailVerified == true) {
@@ -65,6 +50,8 @@ export class AuthService {
       this.router.navigate(['/login']);
       this.log=false;
       localStorage.setItem('token',this.log.toString());
+      localStorage.setItem('auth',JSON.stringify(false));
+
     },err=>{
       alert(err.message);
     })

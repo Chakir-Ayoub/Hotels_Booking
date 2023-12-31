@@ -29,8 +29,8 @@ export class HeaderComponent implements OnInit ,DoCheck {
   @ViewChild('checkOutDate') checkOutDate:ElementRef;
   @ViewChild('guests') guests:ElementRef;
   token:Token;
-  getToken(): string | null {
-    return localStorage.getItem('token');
+  getAuth(): string | null {
+    return localStorage.getItem('auth');
   }
 
 
@@ -43,13 +43,11 @@ export class HeaderComponent implements OnInit ,DoCheck {
 
 
   ngDoCheck(): void {
-    this.LogIn=localStorage.getItem('Token');
+    this.LogIn=localStorage.getItem('auth');
   }
 
   ngOnInit() {
     this.allcity=City.getCitiesOfCountry('MA');
-    // this.token=this.getToken().toString();
-
   }
 
   Search_Button() {
